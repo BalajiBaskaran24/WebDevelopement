@@ -1,8 +1,19 @@
-body{
-font-size: 20px;
+/* body {
+    font-size: 20px;
 }
 
-h1{
+h1 {
     color: brown;
     font-size: 30px;
+} */
+
+/*Id starts with #*/
+#header {
+    color: brown;
+    font-size: 30px;
+}
+
+/*Classes starts with dot*/
+.starting-Letter {
+    font-size: 50px;
 }
