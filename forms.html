@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>Form demo</h1>
+    <!--Used to get information from user-->
+    <!--Post: Post to server-->
+    <!--Get: Get from server-->
+    <form action="" method="POST">
+        <label for="firstNameId">First name:</label><br>
+        <!--No self close or closing tag is required for input tag-->
+        <input type="text" id="firstNameId" name="firstName" required><br>
+
+
+
+        <label>Last name:<br>
+            <input type="text" id="lastNameId" name="lastName" required> 
+        </label>
+        
+        <div>
+            <label for="passWdId">password:</label><br>
+        <input type="password" id="passWdId" name="passWd" required>
+        </div>
+
+        <!--<br/>&nbsp;<br/> To have multiple spaces-->
+        <div>
+            <input type="radio" id="cricketId" name="cricket" required>
+            <label for="cricketId">Cricket</label>
+            <input type="radio" id="footballId" name="cricket" required>
+            <label for="footballId">football</label>
+            <input type="radio" id="basketballId" name="cricket" required>
+            <label for="basketballId">basketball</label>
+        </div>
+
+        <div>
+            <input type="checkbox" id="OneId" name="One" required>
+            <label for="cricketId">One</label>
+            <input type="checkbox" id="TwoId" name="Two" required>
+            <label for="footballId">Two</label>
+            <input type="checkbox" id="ThreeId" name="Three" required>
+            <label for="ThreeId">Three</label>
+        </div>
+
+        <button type="submit">Submit form</button><br>
+        <button type="reset">Reset</button><br>
+    </form>
+</body>
+
+</html>
