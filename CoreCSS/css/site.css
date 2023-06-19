@@ -1,11 +1,37 @@
-/* body {
+/*Below statement doesn't work offline. Imports font using google API*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+
+/*Overwrite vendor CSS with our custom CSS
+Since html is a top down apporach include a overwrite css file after vendor css,
+use the same id here and define appropriate style that you want for the same id or class*/
+
+html {
     font-size: 20px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-style: italic;
+    font-weight: lighter;
+    text-align: justify;
+    text-decoration: green underline wavy;
 }
+
+/*body {
+    font-size: 20px;
+}*/
 
 h1 {
     color: brown;
-    font-size: 30px;
-} */
+    /*em: Element: (n * parent element size)*/
+    /* font-size: 3em; */
+    /*rem: Root Element: (n * root element size i.e html tag in most of the cases) */
+    /*font-size: 3rem; */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    text-indent: 2em;
+    text-transform: capitalize;
+}
 
 /*Id starts with #*/
 #header {
@@ -16,4 +42,78 @@ h1 {
 /*Classes starts with dot*/
 .starting-Letter {
     font-size: 50px;
+    display: flow-root;
+}
+
+/*AND:: The tag Should have both the classes to statisfy the below*/
+.starting-Letter.overall-first-character {
+    color: red;
+}
+
+/*OR:: The tag Should have either of the classes to statisfy the below*/
+.starting-Letter,
+.overall-first-character {
+    color: red;
+}
+
+
+/*Parent child relationship:: Second one is the child of first one*/
+.starting-Letter .overall-first-character {
+    color: red;
+}
+
+/*If tag contains starting-Letter and overall-first-character. The applied color will be red*/
+.overall-first-character {
+    color: blue;
+}
+
+.ninja {
+    /* visibility: hidden; */
+    /*Hide and Reserves space for this item*/
+    /* display: none; */
+    /*Hide and Utilizes this tag space*/
+    display: inline-block;
+    border: solid 1px;
+    width: 30%;
+    padding: 0;
+    /*White space inside border*/
+    margin: 0;
+    /*White space outside border*/
+}
+
+#bettericonId {
+    width: 20%;
+    float: right;
+}
+
+/*Order of styles 1 is highest to 3 lowest
+1. Using style tag in element
+2. Id
+3. Class
+4. Tag
+
+Style represented in Id will take precedence
+
+In case of repeatitive definition item that comes later 
+in order will be applied. In the below case 5px one will 
+be applied
+*/
+
+
+#special-id {
+    font-size: 35px;
+}
+
+.special-class {
+    font-size: 24px;
+}
+
+span {
+    font-size: 8px !important;
+    /*!Important - this will overwrite all including style of tag and applied to tag
+    But this is not recommended to use*/
+}
+
+#special-id {
+    font-size: 5px;
 }
