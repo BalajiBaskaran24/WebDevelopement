@@ -95,13 +95,13 @@ console.log(startwithJ);
 
 
 //--------------------Conditionals--------------------
-const firstname = 'Balaji';
-const lastname = 'Baskaran'
+// const firstname = 'Balaji';
+// const lastname = 'Baskaran'
 
-//This will return true. Only value comparison
-if (firstname == lastname) {
+// //This will return true. Only value comparison
+// if (firstname == lastname) {
 
-}
+// }
 
 const x = '7';
 const y = 7;
@@ -180,3 +180,65 @@ while (month.length > 0) {
 }
 console.log('after pop');
 console.log(month);
+
+
+//--------------------Functions--------------------
+function add(x, y) {
+    return x + y;
+}
+
+function add(x, y) {
+    console.log(x + y);
+}
+
+function add(x = 1, y = 2) {
+    console.log(x + y);
+}
+
+//(Parameter) => { //Method implementation }
+const Subtract = (x, y) => {
+    return x - y;
+}
+
+const Sub = (x, y) => x - y;
+
+console.log(Subtract(5, 2));
+
+//Both filterCWoFun and filterCWithFun are same
+const people = ['Tim', 'Bob', 'Bala'];
+const filterCWoFun = people.filter((p) => p.substring(0, 1) === 'B');
+console.log(filterCWoFun);
+const filterCWithFun = people.filter(function (p) {
+    return p.substring(0, 1) === 'B';
+});
+console.log(filterCWithFun);
+
+
+//--------------------Objects--------------------
+const person = {
+    firstname: 'Balaji',
+    secondname: 'Baskaran',
+    age: 27,
+    married: true,
+    address: {
+        city: 'salem',
+        state: 'TN'
+    },
+
+    //fullname: () => `${firstname} ${lastname}`
+    fullname: function () {
+        return `${this.firstname} ${this.secondname}`;
+    }
+};
+console.log(person.fullname());//It returns undefined for arrow function
+
+function testfun() {
+    return this;
+}
+console.log(testfun());//Prints entire window
+
+const { firstname: fn, age, address: { city } } = person;
+//renaming firstname to fn
+//console.log(firstname);//After rename this will throw error
+console.log(age);
+console.log(fn);
