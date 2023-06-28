@@ -1,0 +1,72 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <main>
+        <h1>Welcome to DOM Demo</h1>
+        <div id="list-section">
+            <a id="add-to-list" href="#">Add new element to list</a>
+            <ul id="key-items">
+                <li>Our first LI</li>
+                <li>Our second LI</li>
+                <li>Our third LI</li>
+            </ul>
+        </div>
+        <div>
+            <h2 id="display-message">Send Email Demo</h2>
+            <p id="status-message"></p>
+            <a id="send-email" href="#">Send Email with mistake</a><br>
+            <a id="recall-email" href="#">Recall Email</a>
+        </div>
+    </main>
+    <script>
+        'use strict';
+        let i = 4;
+        const list = document.getElementById('key-items');
+        const addAction = document.getElementById('add-to-list');
+        const displayMessage = document.getElementById('display-message');
+        let timeoutId = 0;
+        const SendEmailAnc = document.getElementById('send-email');
+        const RecallEmailAnc = document.getElementById('recall-email');
+        const statusMessage = document.getElementById('status-message');
+        let countdown = 10;
+        SendEmailAnc.addEventListener('click', sendEmail);
+        RecallEmailAnc.addEventListener('click', cancelSendEmail);
+
+        function sendEmail(e) {
+            e.preventDefault();
+            timeoutId = setTimeout(countdownToSend, 1);//method will be called after time out.Since () is not added
+        }
+
+        function countdownToSend() {
+            if (countdown > 0) {
+                statusMessage.innerText = `Email will send in ${countdown} seconds...`;
+                countdown--;
+                timeoutId = setTimeout(countdownToSend, 1000);
+            } else {
+                actuallySendEmail();
+                countdown = 10;
+            }
+        }
+
+        function cancelEmail(e) {
+            e.preventDefault();
+            clearTimeout(timeoutId);
+            cancelSendEmail();
+        }
+
+        function actuallySendEmail() {
+            displayMessage.innerHTML = 'The email has been sent!!!';
+        }
+
+        function cancelSendEmail() {
+            displayMessage.innerHTML = 'The email has been recalled!!!';
+            statusMessage.innerHTML = '';
+        }
+    </script>
+</body>
+
+</html>

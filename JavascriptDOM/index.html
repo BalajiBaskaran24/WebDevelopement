@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DOM demo</title>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+    <main>
+        <h1 id="mainheading">
+            Welcome to the DOM demo
+        </h1>
+        <p id="first para">
+            Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Enim, neque. Alias non
+            quidem accusantium itaque,
+            magni quae animi id fugiat?
+        </p>
+        <p id="second para" class="support-para">
+            Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Enim, neque. Alias non
+            quidem accusantium itaque,
+            magni quae animi id fugiat?
+        </p>
+        <p id="third para" class="support-para">
+            Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Enim, neque. Alias non
+            quidem accusantium itaque,
+        </p>
+        <div id="list-section">
+            <a id="anc-id" href="https://www.google.com">Add new element</a>
+            <ul id="key-items">
+                <li>firstli</li>
+                <li>secondli</li>
+                <li>thirdli</li>
+            </ul>
+        </div>
+        <div>
+            <ul id="good-foods">
+
+            </ul>
+        </div>
+    </main>
+    <script>
+        //innerHTML - modify this to add or remove element
+        // const list = document.getElementById('key-items');
+        // list.innerHTML += '<li>Our Fourth LI</li>';
+
+        //----------------------Events----------------------
+        const mainEl = document.querySelector('main');
+        const list = document.getElementById('key-items');
+        const mainheadingEle = document.getElementById('mainheading');
+        const AnchEle = document.getElementById('anc-id');
+
+        AnchEle.addEventListener('click', AncEvent);
+        function AncEvent(e) {
+            e.preventDefault();//This will avoid performing default action of this tag
+            //For anchor tag to open the href URL is default
+            console.log('Print from event')
+            AnchEle.removeEventListener('click', AncEvent);//To remove event listener
+        }
+
+        //Add event listener to specific tags
+        mainEl.addEventListener('click', MainEleClickListener);
+        mainheadingEle.addEventListener('click', HeadingEleClickListener);
+
+        function MainEleClickListener(e) {
+            console.log('event associated with main element is called');
+        }
+
+        function HeadingEleClickListener(e) {
+            e.stopPropagation();//To stop bubbling
+            console.log('event associated with heading element is called');
+        }
+
+        //Bubbling - set third param to false 
+        //Its a method by which an event which got triggered within
+        //a nested set of Html elements gets captured by the innermost
+        //element and travels up the DOM till outermost element.
+        //All events associated with them also invoked in that same order
+
+        //Capturing - set third param to true
+        //Execute only the event that is associated with the specific tag/id
+
+
+        //----------------------Add Html element----------------------
+        //Loop array and update inner html
+        const foods = ['Grill', 'popcorn', 'biryani', 'meals'];
+        const foodlist = document.getElementById('good-foods');
+        //foods.forEach((food) => {
+        //foodlist.innerHTML += `<li>${food}`;
+
+        //     //or
+
+        //const el = document.createElement('li');
+        //el.innerText = food;
+        //foodlist.appendChild(el);
+
+        // });
+
+        //Optimized solution - access document only once. In above approaches
+        //document will be accessed every time
+        // const fragment = new DocumentFragment();
+        // foods.forEach(food => {
+        //     const el = document.createElement('li');
+        //     el.innerText = food;
+        //     fragment.appendChild(el);
+        // });
+        // foodlist.appendChild(fragment);
+
+
+        //DOM, window is global scope, document
+        //window.document all controls renedered on page lies here
+        // const demoid = document.getElementById('key-items');
+        // console.log(demoid);//Prints complete UL
+        // const democlass = document.querySelector('.support-para');
+        // console.log(democlass);//Prints complete UL
+        // const demotag = document.querySelector('p');//Put any tag u want
+        // console.log(demotag);//Prints complete UL
+        // const demoidUsingQS = document.querySelector('#key-items');//Put any tag u want
+        // console.log(demoidUsingQS);//Prints complete UL
+        // let p = document.querySelector('div ul li');//first li of a ul in a div
+        // console.log(p);
+        // let grp = document.querySelectorAll('li');
+        // grp.forEach(el => console.log(el));
+        // const list = document.getElementById('key-items');
+        // //list.innerHTML = 'List changed to text';
+        // //list.remove();//Removes the element
+        // const p1 = document.querySelector('p');
+        // p1.classList.add('dark-mode');//Adding class
+        // p1.classList.remove('dark-mode');
+        // //Starts from 'p' since p1 is assigned with p and goes to
+        // //nearest main element
+        // //It will traverse back and will not check the element of
+        // //same indent. Every time it will go one hierarchy back
+        // p1.closest('main');
+        // let listitem = document.querySelector('li');
+        // const SecondItem = listitem.nextElementSibling;
+        // const ThirdItem = listitem.nextElementSibling;
+        // //This will be null. Since fourth item doesn't exist
+        // const FourthItem = listitem.nextElementSibling;
+        // const PrevItem = listitem.previousElementSibling;
+        // while (listitem !== null) {
+
+        // }
+
+    </script>
+</body>
+
+</html>

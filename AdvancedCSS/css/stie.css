@@ -1,0 +1,19 @@
+/*Setup CSS*/
+#first-div {
+    color: white;
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+}
+
+#second-div {
+    color: white;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
+
+/* Positioning CSS*/
+.relative {
+    
+}
